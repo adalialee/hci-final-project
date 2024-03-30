@@ -12,12 +12,12 @@ Future features:
 - weekly meal planning
 - grocery lists
 
-To install necessary software go the project root folders for both the frontend and server folders, and enter: npm i
+To install dependencies `cd` to the folders for both the frontend and server in Time2Cook, and enter: `npm i`
 
-Enter the server folder, and run npm install -g nodemon
+In the server folder, run `npm install -g nodemon`
 
 Enter your OPENAI api key in the corresponding server file.
 
-First run the server with nodemon index.js from the server folder.
+Run the server with `nodemon index.js` from the server folder.
 
-Then run the frontend with npm run dev from the frontend folder.
+Run the frontend with `npm run dev` from the frontend folder.

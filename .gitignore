@@ -1,1 +1,3 @@
-Time2Cook/server/openaiService.js
+/Time2Cook/server/node_modules
+/.idea
+/Time2Cook/server/.idea
