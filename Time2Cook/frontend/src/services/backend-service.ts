@@ -6,7 +6,7 @@
 import apiClient from "./api-client";
 
 /**
- * Defines a resuable HTTP-Service class.
+ * Defines a reusable HTTP-Service class.
  * Contains a post method.
  */
 class HttpService {
@@ -34,35 +34,11 @@ class HttpService {
 }
 
 /**
- * Creates a connection for unmodfied chat interactions.
- * @returns new HttpService object to the default response route.
+ * Creates a connection for retrieving a recipe.
+ * @returns new HttpService object to the recipe route.
  */
-const createResponseService = () => {
-    return new HttpService("/response");
+const createRecipeService = () => {
+    return new HttpService("/recipe");
 }
 
-/**
- * Creates a connection for parentally controlled interactions.
- * @returns new HttpService object to the parental route.
- */
-const createParentalService = () => {
-    return new HttpService("/parental");
-}
-
-/**
- * Creates a connection for gpt interactions with specific domain knowledge.
- * @returns new HttpService object to the expert route.
- */
-const createExpertResponseService = () => {
-    return new HttpService("/expert");
-}
-
-/**
- * Creates a connection for sending user "likes".
- * @returns new HttpService object to the "like" route.
- */
-const createLikeService = () => {
-    return new HttpService("/like");
-}
-
-export { createResponseService, createParentalService, createExpertResponseService, createLikeService };
+export { createRecipeService };
