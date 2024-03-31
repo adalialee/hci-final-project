@@ -22,4 +22,8 @@ body {
     width: 30%;
     margin: auto;
   }
+
+  .test {
+    white-space: pre-wrap;
+  }
 }

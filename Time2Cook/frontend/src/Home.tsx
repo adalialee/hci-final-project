@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {Button} from "@mui/material";
 import {FilterInput} from "./components/FilterInput";
+import {createRecipeService} from "./services/backend-service";
 
-export var apiPrompt = "";
+let apiPrompt = "";
 
 function Home() {
   const [timeAvailable, setTimeAvailable] = useState("");
@@ -11,6 +12,7 @@ function Home() {
   const [preferredCuisine, setPreferredCuisine] = useState("");
   const [budgetAmount, setBudgetAmount] = useState("");
   const [mealChoice, setMealChoice] = useState("");
+  const [recipe, setRecipe] = useState("this is now gpt-linked, recipe displays here for testing purposes only (it takes a few moments)");
 
   const constructPrompt = () => {
     apiPrompt = "Generate a recipe with detailed step by step instructions. "
@@ -33,7 +35,27 @@ function Home() {
     if (mealChoice != "") {
       apiPrompt += `meal of day: ${mealChoice}.`
     }
-    console.log(apiPrompt);
+    return apiPrompt;
+  }
+
+  // make call to GPT API
+  const getRecipe = () => {
+    const prompt = constructPrompt();
+    const {request, cancel} = createRecipeService().post([
+      {
+        role: "user",
+        content: prompt,
+      },
+    ]);
+
+    request
+      .then((res) => {
+        console.log(res.data);
+        setRecipe(res.data);
+      })
+      .catch((err) => {
+        alert("Could not retrieve recipe!")
+      });
   }
 
   return (
@@ -82,7 +104,7 @@ function Home() {
           placeholder={"Asian food"}
           value={preferredCuisine}
           setInputValue={setPreferredCuisine}
-          tooltipTitle={"cuisine"}
+          tooltipTitle={"dish/cuisine"}
         />
       </div>
 
@@ -109,8 +131,12 @@ function Home() {
       <br/>
 
       <div className="submit">
-        <Button onClick={constructPrompt}>Find my recipes!</Button>
+        <Button onClick={getRecipe}>Find my recipes!</Button>
       </div>
+
+      <br/>
+
+      <p className="test">{recipe}</p>
     </div>
   );
 }
