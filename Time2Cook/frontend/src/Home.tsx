@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {Button, Tooltip} from "@mui/material";
+import {Button} from "@mui/material";
+import {FilterInput} from "./components/FilterInput";
 
 export var apiPrompt = "";
 
@@ -24,10 +25,10 @@ function Home() {
       apiPrompt += `keeping these allergies/dietary restrictions in mind: ${dietaryRestrictions}, `
     }
     if (preferredCuisine != "") {
-      apiPrompt += `cuisine: ${preferredCuisine}, `
+      apiPrompt += `dish/cuisine: ${preferredCuisine}, `
     }
     if (budgetAmount != "") {
-      apiPrompt += `costing less than: ${budgetAmount}.`
+      apiPrompt += `costing less than: ${budgetAmount}, `
     }
     if (mealChoice != "") {
       apiPrompt += `meal of day: ${mealChoice}.`
@@ -41,32 +42,26 @@ function Home() {
 
       <p>Looking for the perfect recipe according to your needs? Fill out as many fields as you'd like!</p>
 
-      <br />
+      <br/>
 
       <div className="filter">
         <p>I have </p>
 
-        <Tooltip title="time available" placement="right">
-          <input
-            type="text"
-            placeholder="60 minutes"
-            value={timeAvailable}
-            onChange={(event) => {
-            setTimeAvailable((event.target.value));
-          }}/>
-        </Tooltip>
+        <FilterInput
+          placeholder={"60 minutes"}
+          value={timeAvailable}
+          setInputValue={setTimeAvailable}
+          tooltipTitle={"time available"}
+        />
 
         <p> to cook and </p>
 
-        <Tooltip title="ingredients available" placement="right">
-          <input
-            type="text"
-            placeholder="broccoli, beef, soy sauce"
-            value={ingredientsAvailable}
-            onChange={(event) => {
-            setIngredientsAvailable((event.target.value));
-          }}/>
-        </Tooltip>
+        <FilterInput
+          placeholder={"broccoli, beef, soy sauce"}
+          value={ingredientsAvailable}
+          setInputValue={setIngredientsAvailable}
+          tooltipTitle={"ingredients available"}
+        />
 
         <p> in my pantry. </p>
       </div>
@@ -74,56 +69,44 @@ function Home() {
       <div className="filter">
         <p>I cannot have </p>
 
-        <Tooltip title="allergies, dietary restrictions" placement="right">
-          <input
-            type="text"
-            placeholder="peanuts or sesame"
-            value={dietaryRestrictions}
-            onChange={(event) => {
-            setDietaryRestrictions((event.target.value));
-          }}/>
-        </Tooltip>
+        <FilterInput
+          placeholder={"peanuts or sesame"}
+          value={dietaryRestrictions}
+          setInputValue={setDietaryRestrictions}
+          tooltipTitle={"allergies and dietary restrictions"}
+        />
 
-        <p>and I prefer eating </p>
+        <p>and I want to make </p>
 
-        <Tooltip title="cuisine" placement="right">
-          <input
-            type="text"
-            placeholder="Asian food"
-            value={preferredCuisine}
-            onChange={(event) => {
-            setPreferredCuisine((event.target.value));
-          }}/>
-        </Tooltip>
+        <FilterInput
+          placeholder={"Asian food"}
+          value={preferredCuisine}
+          setInputValue={setPreferredCuisine}
+          tooltipTitle={"cuisine"}
+        />
       </div>
 
       <div className="filter">
         <p>My budget is </p>
 
-        <Tooltip title="cost of ingredients" placement="right">
-          <input
-            type="text"
-            placeholder="$20"
-            value={budgetAmount}
-            onChange={(event) => {
-            setBudgetAmount((event.target.value));
-          }}/>
-        </Tooltip>
+        <FilterInput
+          placeholder={"$20"}
+          value={budgetAmount}
+          setInputValue={setBudgetAmount}
+          tooltipTitle={"cost of ingredients"}
+        />
 
         <p>for </p>
 
-        <Tooltip title="meal" placement="right">
-          <input
-            type="text"
-            placeholder="dinner"
-            value={mealChoice}
-            onChange={(event) => {
-            setMealChoice((event.target.value));
-          }}/>
-        </Tooltip>
+        <FilterInput
+          placeholder={"dinner"}
+          value={mealChoice}
+          setInputValue={setMealChoice}
+          tooltipTitle={"meal"}
+        />
       </div>
 
-      <br />
+      <br/>
 
       <div className="submit">
         <Button onClick={constructPrompt}>Find my recipes!</Button>
