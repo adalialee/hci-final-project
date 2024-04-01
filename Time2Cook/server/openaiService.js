@@ -7,7 +7,7 @@
 
 // Creates an OpenAI connection using the provided api key
  const openai = new OpenAI({
-     apiKey: "<YOUR API KEY HERE>"
+     apiKey: "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"
  });
 
 
