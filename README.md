@@ -11,7 +11,9 @@ encouraged to cook more often.
 
 ## Our Interface
 
-
+![main display](main.png)
+![example of a recipe](recipe1.png)
+![scrolled down view](morerecipe.png)
 
 Future features:
 - individual view of each recipe's details
