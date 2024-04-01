@@ -11,8 +11,13 @@ encouraged to cook more often.
 
 ## Our Interface
 
+Our main display:
 ![main display](main.png)
+
+The view of the recipes page after clicking the button:
 ![example of a recipe](recipe1.png)
+
+Scrolling down the page to view recipes:
 ![scrolled down view](morerecipe.png)
 
 Future features:
