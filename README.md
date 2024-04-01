@@ -9,12 +9,18 @@ can be difficult, and there are so many recipes to choose from that someone may 
 to begin. If students could take some of the guesswork out of the process, they may be
 encouraged to cook more often.
 
-Future features:
+## Our Interface
 
+![main display](main.png)
+![example of a recipe](recipe1.png)
+![scrolled down view](morerecipe.png)
+
+Future features:
+- individual view of each recipe's details
 - weekly meal planning
 - grocery lists
 
-# Running the app
+# Running the App
 To install dependencies `cd` to the folders for both the frontend and server in Time2Cook, and enter: `npm i`
 
 Enter your OPENAI api key in the corresponding server file.
