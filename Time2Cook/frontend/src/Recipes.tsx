@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 
 function Recipe() {
   const [recipeContent, setRecipeContent] = useState("");
@@ -6,14 +6,14 @@ function Recipe() {
   useEffect(() => {
     // When the component mounts, set the recipe content from window.name
     setRecipeContent(window.name);
-    }, [recipeContent]);
+  }, [recipeContent]);
 
   return (
     <div className="home">
       <h2>Recipe</h2>
       <p className="test">{recipeContent}</p>
     </div>
-    );
+  );
 }
 
 export default Recipe;
