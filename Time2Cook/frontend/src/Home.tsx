@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {FilterInput} from "./components/FilterInput";
 import {createRecipeService} from "./services/backend-service";
 import {constructPrompt} from "./components/PromptGenerator"; // Import the constructPrompt function
+import loading from "./img/loading.gif"
 
 function Home() {
   // router
@@ -16,6 +17,9 @@ function Home() {
   const [preferredCuisine, setPreferredCuisine] = useState("");
   const [budgetAmount, setBudgetAmount] = useState("");
   const [mealChoice, setMealChoice] = useState("");
+
+  // loading gif
+  const [isLoading, setIsLoading] = useState(false);
 
   // when the submit button is clicked
   const getRecipe = () => {
@@ -36,9 +40,12 @@ function Home() {
       },
     ]);
 
+    setIsLoading(true);
+
     // call api
     request
       .then((res) => {
+        setIsLoading(false);
         window.name = (res.data);
         navigate("/recipes");
       })
@@ -79,6 +86,9 @@ function Home() {
       <br/>
       <div className="submit">
         <Button onClick={getRecipe}>Find my recipes!</Button>
+      </div>
+      <div className="loading">
+        {isLoading ? <img src={loading} alt="loading gif"/>: <></> }
       </div>
     </div>
   );

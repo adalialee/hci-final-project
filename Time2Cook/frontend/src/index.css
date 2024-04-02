@@ -26,4 +26,17 @@ body {
   .recipe {
     white-space: pre-wrap;
   }
+
+  .loading {
+    display: flex;
+    align-items: center;
+    margin: auto;
+
+    img {
+      width: 10%;
+      display: block;
+      margin-left: 20.4em;
+      margin-right: 14em;
+    }
+  }
 }
