@@ -10,27 +10,27 @@ import apiClient from "./api-client";
  * Contains a post method.
  */
 class HttpService {
-    endpoint: string;
+  endpoint: string;
 
-    /**
-     * Constructs an HTTP service object. Base URL is defined the api-client file.
-     * Directs requests to provided endpoint of the base url.
-     * @param endpoint the target route to post to
-     */
-    constructor(endpoint: string) {
-        this.endpoint = endpoint;
-    }
+  /**
+   * Constructs an HTTP service object. Base URL is defined the api-client file.
+   * Directs requests to provided endpoint of the base url.
+   * @param endpoint the target route to post to
+   */
+  constructor(endpoint: string) {
+    this.endpoint = endpoint;
+  }
 
-    /**
-     * Performs a post request and loads in the provided message histroy
-     * @param messages message history to 
-     * @returns response object from endpoint, and abort logic
-     */
-    post(messages: { role: string; content: string; }[]) {
-        const controller = new AbortController();
-        const request = apiClient.post(this.endpoint, { params: { messages: messages }, signal: controller.signal });
-        return { request, cancel: () => controller.abort() };
-    }
+  /**
+   * Performs a post request and loads in the provided message histroy
+   * @param messages message history to
+   * @returns response object from endpoint, and abort logic
+   */
+  post(messages: { role: string; content: string; }[]) {
+    const controller = new AbortController();
+    const request = apiClient.post(this.endpoint, {params: {messages: messages}, signal: controller.signal});
+    return {request, cancel: () => controller.abort()};
+  }
 }
 
 /**
@@ -38,7 +38,7 @@ class HttpService {
  * @returns new HttpService object to the recipe route.
  */
 const createRecipeService = () => {
-    return new HttpService("/recipe");
+  return new HttpService("/recipe");
 }
 
-export { createRecipeService };
+export {createRecipeService};

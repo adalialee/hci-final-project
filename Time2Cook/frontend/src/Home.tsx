@@ -6,8 +6,10 @@ import {createRecipeService} from "./services/backend-service";
 import {constructPrompt} from "./components/PromptGenerator"; // Import the constructPrompt function
 
 function Home() {
+  // router
   const navigate = useNavigate();
 
+  // filter values
   const [timeAvailable, setTimeAvailable] = useState("");
   const [ingredientsAvailable, setIngredientsAvailable] = useState("");
   const [dietaryRestrictions, setDietaryRestrictions] = useState("");
@@ -15,6 +17,7 @@ function Home() {
   const [budgetAmount, setBudgetAmount] = useState("");
   const [mealChoice, setMealChoice] = useState("");
 
+  // when the submit button is clicked
   const getRecipe = () => {
     const prompt = constructPrompt(
       timeAvailable,
@@ -24,7 +27,8 @@ function Home() {
       budgetAmount,
       mealChoice
     );
-    console.log('Prompt:', prompt)
+
+    // method for api call
     const {request} = createRecipeService().post([
       {
         role: "user",
@@ -32,6 +36,7 @@ function Home() {
       },
     ]);
 
+    // call api
     request
       .then((res) => {
         window.name = (res.data);

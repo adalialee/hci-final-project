@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 function Recipe() {
+  // store recipe values
   const [recipeContent, setRecipeContent] = useState("");
 
   useEffect(() => {
@@ -11,7 +12,7 @@ function Recipe() {
   return (
     <div className="home">
       <h2>Recipe</h2>
-      <p className="test">{recipeContent}</p>
+      <p className="recipe">{recipeContent}</p>
     </div>
   );
 }
