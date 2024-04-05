@@ -7,9 +7,8 @@
 
 // Creates an OpenAI connection using the provided api key
  const openai = new OpenAI({
-     apiKey: "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"
+   apiKey: ""
  });
-
 
  /**
  * Function for getting a response from the gpt model.
