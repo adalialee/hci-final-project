@@ -1,5 +1,6 @@
 body {
   padding: 20px;
+  background-color: #E0FDDC;
 }
 
 .home {
@@ -16,6 +17,10 @@ body {
     column-gap: 10px;
     align-items: baseline;
     padding-bottom: 10px;
+  }
+
+  .entry {
+    border: 1px solid #1D710F;
   }
 
   .submit {

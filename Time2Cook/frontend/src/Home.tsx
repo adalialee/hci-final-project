@@ -40,32 +40,44 @@ function Home() {
 
   return (
     <div className="home">
-      <h1>Time2Cook</h1>
+      <h1 style={{color: "#1D710F"}}>Time2Cook</h1>
       <p>Looking for the perfect recipe according to your needs? Fill out as many fields as you'd like!</p>
       <br />
       <div className="filter">
         <p>I have </p>
-        <FilterInput placeholder={"60 minutes"} value={timeAvailable} setInputValue={setTimeAvailable} tooltipTitle={"time available"} />
+        <div className="entry">
+          <FilterInput placeholder={"60 minutes"} value={timeAvailable} setInputValue={setTimeAvailable} tooltipTitle={"time available"}/>
+        </div>
         <p> to cook and </p>
-        <FilterInput placeholder={"broccoli, beef, soy sauce"} value={ingredientsAvailable} setInputValue={setIngredientsAvailable} tooltipTitle={"ingredients available"} />
+        <div className="entry">
+          <FilterInput placeholder={"broccoli, beef, soy sauce"} value={ingredientsAvailable} setInputValue={setIngredientsAvailable} tooltipTitle={"ingredients available"} />
+        </div>
         <p> in my pantry. </p>
       </div>
       <div className="filter">
         <p>I cannot have </p>
-        <FilterInput placeholder={"peanuts or sesame"} value={dietaryRestrictions} setInputValue={setDietaryRestrictions} tooltipTitle={"allergies and dietary restrictions"} />
+        <div className="entry">
+          <FilterInput placeholder={"peanuts or sesame"} value={dietaryRestrictions} setInputValue={setDietaryRestrictions} tooltipTitle={"allergies and dietary restrictions"} />
+        </div>
         <p>and I want to make </p>
-        <FilterInput placeholder={"Asian food"} value={preferredCuisine} setInputValue={setPreferredCuisine} tooltipTitle={"dish/cuisine"} />
+        <div className="entry">
+          <FilterInput placeholder={"Asian food"} value={preferredCuisine} setInputValue={setPreferredCuisine} tooltipTitle={"dish/cuisine"} />
+        </div>
       </div>
       <div className="filter">
         <p>My budget is </p>
-        <FilterInput placeholder={"$20"} value={budgetAmount} setInputValue={setBudgetAmount} tooltipTitle={"cost of ingredients"} />
+        <div className="entry">
+          <FilterInput placeholder={"$20"} value={budgetAmount} setInputValue={setBudgetAmount} tooltipTitle={"cost of ingredients"} />
+        </div>
         <p>for </p>
-        <FilterInput placeholder={"dinner"} value={mealChoice} setInputValue={setMealChoice} tooltipTitle={"meal"} />
+        <div className="entry">
+          <FilterInput placeholder={"dinner"} value={mealChoice} setInputValue={setMealChoice} tooltipTitle={"meal"} />
+        </div>
       </div>
       <br />
       <div className="submit">
         <a href="/recipes">
-          <Button onClick={getRecipe}>Find my recipes!</Button>
+          <Button onClick={getRecipe} style={{color: "#1D710F"}}>Find my recipes!</Button>
         </a>
       </div>
     </div>
