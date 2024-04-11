@@ -4,7 +4,8 @@ import {useNavigate} from "react-router-dom";
 import {FilterInput} from "./components/FilterInput";
 import {createRecipeService} from "./services/backend-service";
 import {constructPrompt} from "./components/PromptGenerator"; // Import the constructPrompt function
-import loading from "./img/loading.gif"
+import loading from "./img/food-loading.gif"
+import chef from "./img/chef.png"
 
 function Home() {
   // router
@@ -17,6 +18,8 @@ function Home() {
   const [preferredCuisine, setPreferredCuisine] = useState("");
   const [budgetAmount, setBudgetAmount] = useState("");
   const [mealChoice, setMealChoice] = useState("");
+  const [owned, setOwned] = useState("");
+  const [notOwned, setNotOwned] = useState("");
 
   // loading gif
   const [isLoading, setIsLoading] = useState(false);
@@ -29,7 +32,9 @@ function Home() {
       dietaryRestrictions,
       preferredCuisine,
       budgetAmount,
-      mealChoice
+      mealChoice,
+      owned,
+      notOwned
     );
 
     // method for api call
@@ -56,8 +61,11 @@ function Home() {
 
   return (
     <div className="home">
+      <img className="icon" src={chef} alt="chef icon"/>
       <h1>Time2Cook</h1>
-      <p>Looking for the perfect recipe according to your needs? Fill out as many fields as you'd like!</p>
+      <br/>
+      <p>Looking for the perfect recipe according to your needs? </p>
+      <p>Fill out zero fields, or as many fields as you'd like!</p>
       <br/>
       <div className="filter">
         <p>I have </p>
@@ -81,7 +89,14 @@ function Home() {
         <FilterInput placeholder={"$20"} value={budgetAmount} setInputValue={setBudgetAmount}
                      tooltipTitle={"cost of ingredients"}/>
         <p>for </p>
-        <FilterInput placeholder={"dinner"} value={mealChoice} setInputValue={setMealChoice} tooltipTitle={"meal"}/>
+        <FilterInput placeholder={"a potluck"} value={mealChoice} setInputValue={setMealChoice} tooltipTitle={"meal/occasion"}/>
+      </div>
+      <div className="filter">
+        <p>I own </p>
+        <FilterInput placeholder={"an oven"} value={owned} setInputValue={setOwned}
+          tooltipTitle={"appliances and tools"}/>
+        <p>and I do not want to use </p>
+        <FilterInput placeholder={"a mixer"} value={notOwned} setInputValue={setNotOwned} tooltipTitle={"appliances/tools"}/>
       </div>
       <br/>
       <div className="submit">
