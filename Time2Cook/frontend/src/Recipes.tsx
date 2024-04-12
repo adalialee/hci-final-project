@@ -4,9 +4,11 @@ import {useNavigate} from "react-router-dom";
 
 function Recipe() {
   // store recipe values
-  const [individualRecipes, setIndividualRecipes] = useState([]);
+  const [individualRecipes, setIndividualRecipes] = useState([""]);
   // router
   const navigate = useNavigate();
+
+  let title = "";
 
   const returnToHome = () => {
     navigate("/");
@@ -18,16 +20,34 @@ function Recipe() {
     console.log(individualRecipes)
   }, []);
 
+  // this section for image API (future feature)
+//  const getPictures = (query: string) : string => {
+//    let url = ""
+//    fetch(`https://api.unsplash.com/search/photos?client_id=AyHbYtpefN3EQlmCyQi-sHoPosV6UHYcRrKOEU1bzFI&query=${query}`)
+//      .then((res) => {
+//        return res.json();
+//      })
+//      .then((data) => {
+//        console.log(data["results"][0]["urls"]["small"]);
+//        url = data["results"][0]["urls"]["small"];
+//      });
+//    return url;
+//  };
+
   return (
     <div className="home">
       <h2>Recipes</h2>
       {
         individualRecipes.map((recipe) =>
-        <div>
-          <br />
-          <li className="recipe">{recipe}</li>
-          <hr />
-        </div>
+          <>
+            {/*{title = recipe.split("Ingredients:")[0].split(":")[1]}*/}
+            {/*<img src={getPictures(title)} alt={title}/>*/}
+            <div>
+              <br/>
+              <li className="recipe">{recipe}</li>
+              <hr/>
+            </div>
+          </>
         )
       }
       <div className="back">

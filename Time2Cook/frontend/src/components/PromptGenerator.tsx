@@ -26,10 +26,10 @@ export const constructPrompt = (
     apiPrompt += `costing less than: ${budgetAmount}, `;
   }
   if (mealChoice !== "") {
-    apiPrompt += `meal of day: ${mealChoice},`;
+    apiPrompt += `meal of day: ${mealChoice}, `;
   }
   if (owned !== "") {
-    apiPrompt += `has these: ${owned},`;
+    apiPrompt += `has these: ${owned}, `;
   }
   if (notOwned !== "") {
     apiPrompt += `does not own: ${notOwned}.`;
