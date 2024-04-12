@@ -51,4 +51,8 @@ body {
       margin-right: 14em;
     }
   }
+
+  .clipboard {
+    float: right;
+  }
 }

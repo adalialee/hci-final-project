@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Button} from "@mui/material";
 import {useNavigate} from "react-router-dom";
+import {Clipboard} from "./components/Clipboard";
 
 function Recipe() {
   // store recipe values
@@ -44,6 +45,7 @@ function Recipe() {
             {/*<img src={getPictures(title)} alt={title}/>*/}
             <div>
               <br/>
+              <Clipboard recipe={recipe}/>
               <li className="recipe">{recipe}</li>
               <hr/>
             </div>
