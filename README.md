@@ -20,10 +20,15 @@ The view of the recipes page after clicking the button:
 Scrolling down the page to view recipes:
 ![scrolled down view](morerecipe.png)
 
+Useful features:
+- fill in as many filters as you want
+- exact amounts of ingredients listed
+- copy to clipboard function
+
 Future features:
-- individual view of each recipe's details
+- add photos for step by step guidance
 - weekly meal planning
-- grocery lists
+- grocery lists paired with recipes
 
 # Running the App
 To install dependencies `cd` to the folders for both the frontend and server in Time2Cook, and enter: `npm i`
